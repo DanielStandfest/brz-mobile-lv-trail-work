@@ -1,0 +1,61 @@
+﻿@page "/leistungsverzeichnis"
+
+@using BrzMobileLvTrailWork.ApiModels
+@using BrzMobileLvTrailWork.ApiModels.Extensions.LeistungsverzeichnisPositionApiModelExtensions
+@using BrzMobileLvTrailWork.Services
+@using BrzMobileLvTrailWork.Components
+
+@inject LeistungsverzeichnisService LeistungsverzeichnisService
+
+<link rel="stylesheet" href="css/leistungsverzeichnis-page.css" />
+
+<h1>Leistungsverzeichnis</h1>
+
+@if (_LeistungsverzeichnisPositionen == null)
+{
+    <p><em>Daten werden geladen ...</em></p>
+}
+else
+{
+    <div class="lv-flags lv-flags-column">
+        <div class="lv-flags lv-flags-row">
+            <span class="lv-flag lv-flag-has-langtext"></span> enthält Langtext
+        </div>
+        <div class="lv-flags lv-flags-row">
+            <span class="lv-flag lv-flag-is-nachtragsposition"></span> ist Nachtragsposition
+        </div>
+    </div>
+
+    <table class="table table-leistungsverzeichnis">
+        <thead>
+            <tr>
+                <th>Ordnungszahl</th>
+                <th>Kurztext</th>
+                <th>Gesamtpreis</th>
+                <th>Kennzeichen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var leistungsverzeichnisPosition in _LeistungsverzeichnisPositionen)
+            {
+                <tr>
+                    <td>@leistungsverzeichnisPosition.Ordnungszahl</td>
+                    <td>@leistungsverzeichnisPosition.Kurztext</td>
+                    <td>@leistungsverzeichnisPosition.Gesamtpreis &euro;</td>
+                    <td>
+                        <LeistunsgsverzeichnisFlags HasLangtext=@leistungsverzeichnisPosition.HasLangtext() IsNachtragsposition=@leistungsverzeichnisPosition.IsNachtragsPosition />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private LeistungsverzeichnisPositionApiModel[] _LeistungsverzeichnisPositionen;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _LeistungsverzeichnisPositionen = await LeistungsverzeichnisService.GetLeistungsverzeichnisPositionenAsync();
+    }
+}
