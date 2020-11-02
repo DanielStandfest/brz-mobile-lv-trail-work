@@ -5,7 +5,7 @@
 
 or
 
-- Visual Studio 2019
+- Visual Studio 2019 v16.8 Preview 4 or above
 
 # Clone, build and run the project
 
