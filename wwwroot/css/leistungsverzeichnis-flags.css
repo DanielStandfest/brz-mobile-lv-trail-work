@@ -1,0 +1,35 @@
+:root {
+    --brz-blue: rgb(83, 101, 146);
+    --brz-orange: rgb(226, 178, 39);
+}
+
+.lv-flags {
+    display: flex;
+    height: 100%; /* stretch to outer element height */
+}
+
+.lv-flags-column {
+    flex-direction: column;
+}
+
+.lv-flags-row {
+    flex-direction: row;
+}
+
+.lv-flags-row:not(:first-child) {
+    margin-top: 5px;
+}
+
+.lv-flag {
+    width: 10px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.lv-flag-has-langtext {
+    background-color: var(--brz-blue);
+}
+
+.lv-flag-is-nachtragsposition {
+    background-color: var(--brz-orange);
+}

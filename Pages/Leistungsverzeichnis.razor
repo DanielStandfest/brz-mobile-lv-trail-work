@@ -1,9 +1,13 @@
 ﻿@page "/leistungsverzeichnis"
 
 @using BrzMobileLvTrailWork.ApiModels
+@using BrzMobileLvTrailWork.ApiModels.Extensions.LeistungsverzeichnisApiModelExtensions
 @using BrzMobileLvTrailWork.Services
+@using BrzMobileLvTrailWork.Components
 
 @inject LeistungsverzeichnisService LeistungsverzeichnisService
+
+<link rel="stylesheet" href="css/leistungsverzeichnis-page.css" />
 
 <h1>Leistungsverzeichnis</h1>
 
@@ -13,7 +17,16 @@
 }
 else
 {
-    <table class="table">
+    <div class="lv-flags lv-flags-column">
+        <div class="lv-flags lv-flags-row">
+            <span class="lv-flag lv-flag-has-langtext"></span> enthält Langtext
+        </div>
+        <div class="lv-flags lv-flags-row">
+            <span class="lv-flag lv-flag-is-nachtragsposition"></span> ist Nachtragsposition
+        </div>
+    </div>
+
+    <table class="table table-leistungsverzeichnis">
         <thead>
             <tr>
                 <th>Ordnungszahl</th>
@@ -29,7 +42,9 @@ else
                     <td>@leistungsverzeichnis.Ordnungszahl</td>
                     <td>@leistungsverzeichnis.Kurztext</td>
                     <td>@leistungsverzeichnis.Gesamtpreis &euro;</td>
-                    <td></td>
+                    <td>
+                        <LeistunsgsverzeichnisFlags HasLangtext=@leistungsverzeichnis.HasLangtext() IsNachtragsposition=@leistungsverzeichnis.IsNachtragsPosition />
+                    </td>
                 </tr>
             }
         </tbody>
