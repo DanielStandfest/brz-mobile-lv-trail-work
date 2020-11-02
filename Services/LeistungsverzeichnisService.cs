@@ -1,25 +1,26 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using BrzMobileLvTrailWork.ApiModels;
 
-namespace BrzMobileLvTrailWork.Data
+namespace BrzMobileLvTrailWork.Services
 {
     public class LeistungsverzeichnisService
     {
-        public Task<Leistungsverzeichnis[]> GetLeistungsverzeichnisseAsync()
+        public Task<LeistungsverzeichnisApiModel[]> GetLeistungsverzeichnisseAsync()
         {
             var result = new [] {
-                new Leistungsverzeichnis {
+                new LeistungsverzeichnisApiModel {
                     Id = 1,
                     Ordnungszahl = "01",
                     Kurztext = "Neubau"
                 },
-                new Leistungsverzeichnis {
+                new LeistungsverzeichnisApiModel {
                     Id = 2,
                     Ordnungszahl = "01.01",
                     Kurztext = "Baustelleneinrichtung"
                 },
-                new Leistungsverzeichnis {
+                new LeistungsverzeichnisApiModel {
                     Id = 3,
                     Ordnungszahl = "01.01.0010",
                     Kurztext = "Bauzaun",

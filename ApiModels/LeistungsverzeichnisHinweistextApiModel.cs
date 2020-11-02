@@ -1,6 +1,6 @@
-namespace  BrzMobileLvTrailWork.Data
+namespace  BrzMobileLvTrailWork.ApiModels
 {
-    public class LeistungsverzeichnisHinweistext
+    public class LeistungsverzeichnisHinweistextApiModel
     {
         public int LeistungsverzeichnisId { get; set; }
         public int HinweistextId { get; set; }

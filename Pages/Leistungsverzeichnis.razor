@@ -1,6 +1,8 @@
 ﻿@page "/leistungsverzeichnis"
 
-@using BrzMobileLvTrailWork.Data
+@using BrzMobileLvTrailWork.ApiModels
+@using BrzMobileLvTrailWork.Services
+
 @inject LeistungsverzeichnisService LeistungsverzeichnisService
 
 <h1>Leistungsverzeichnis</h1>
@@ -35,7 +37,7 @@ else
 }
 
 @code {
-    private Data.Leistungsverzeichnis[] leistungsverzeichnisse;
+    private LeistungsverzeichnisApiModel[] leistungsverzeichnisse;
 
     protected override async Task OnInitializedAsync()
     {

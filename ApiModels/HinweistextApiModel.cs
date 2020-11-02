@@ -1,6 +1,6 @@
-namespace BrzMobileLvTrailWork.Data
+namespace BrzMobileLvTrailWork.ApiModels
 {
-    public class Hinweistex
+    public class HinweistextApiModel
     {
         public int Id { get; set; }
         public string Kurzbezeichnung { get; set; }
