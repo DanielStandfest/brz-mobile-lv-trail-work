@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using BrzMobileLvTrailWork.ApiModels;
@@ -20,31 +19,31 @@ namespace BrzMobileLvTrailWork.Services
                 }
             };
 
-        private LeistungsverzeichnisHinweistextApiModel[] _LeistungsverzeichnisHinweistexte = new [] {
-                new LeistungsverzeichnisHinweistextApiModel {
+        private LeistungsverzeichnisPositionHinweistextApiModel[] _LeistungsverzeichnisPositionHinweistexte = new [] {
+                new LeistungsverzeichnisPositionHinweistextApiModel {
                     LeistungsverzeichnisId = 3,
                     HinweistextId = 1
                 },
-                new LeistungsverzeichnisHinweistextApiModel {
+                new LeistungsverzeichnisPositionHinweistextApiModel {
                     LeistungsverzeichnisId = 3,
                     HinweistextId = 2
                 }
             };
 
-        public Task<LeistungsverzeichnisApiModel[]> GetLeistungsverzeichnisseAsync()
+        public Task<LeistungsverzeichnisPositionApiModel[]> GetLeistungsverzeichnisPositionenAsync()
         {
             var result = new [] {
-                new LeistungsverzeichnisApiModel {
+                new LeistungsverzeichnisPositionApiModel {
                     Id = 1,
                     Ordnungszahl = "01",
                     Kurztext = "Neubau"
                 },
-                new LeistungsverzeichnisApiModel {
+                new LeistungsverzeichnisPositionApiModel {
                     Id = 2,
                     Ordnungszahl = "01.01",
                     Kurztext = "Baustelleneinrichtung"
                 },
-                new LeistungsverzeichnisApiModel {
+                new LeistungsverzeichnisPositionApiModel {
                     Id = 3,
                     Ordnungszahl = "01.01.0010",
                     Kurztext = "Bauzaun",

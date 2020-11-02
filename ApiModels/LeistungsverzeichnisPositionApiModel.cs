@@ -1,6 +1,6 @@
 namespace  BrzMobileLvTrailWork.ApiModels
 {
-    public class LeistungsverzeichnisApiModel
+    public class LeistungsverzeichnisPositionApiModel
     {
         public int Id { get; set; }
         public string Ordnungszahl { get; set; }
