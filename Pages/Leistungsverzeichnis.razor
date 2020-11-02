@@ -1,0 +1,44 @@
+﻿@page "/leistungsverzeichnis"
+
+@using BrzMobileLvTrailWork.Data
+@inject LeistungsverzeichnisService LeistungsverzeichnisService
+
+<h1>Leistungsverzeichnis</h1>
+
+@if (leistungsverzeichnisse == null)
+{
+    <p><em>Daten werden geladen ...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ordnungszahl</th>
+                <th>Kurztext</th>
+                <th>Gesamtpreis</th>
+                <th>Kennzeichen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var leistungsverzeichnis in leistungsverzeichnisse)
+            {
+                <tr>
+                    <td>@leistungsverzeichnis.Ordnungszahl</td>
+                    <td>@leistungsverzeichnis.Kurztext</td>
+                    <td>@leistungsverzeichnis.Gesamtpreis &euro;</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Data.Leistungsverzeichnis[] leistungsverzeichnisse;
+
+    protected override async Task OnInitializedAsync()
+    {
+        leistungsverzeichnisse = await LeistungsverzeichnisService.GetLeistungsverzeichnisseAsync();
+    }
+}
